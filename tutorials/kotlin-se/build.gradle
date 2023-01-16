@@ -1,0 +1,75 @@
+buildscript {
+	repositories {
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+		mavenCentral()
+	}
+}
+
+plugins {
+	id 'java'
+	id 'org.jetbrains.kotlin.jvm' version '1.7.21' apply true
+}
+
+wrapper {
+	gradleVersion = '7.4.2' // version required
+}
+
+/**
+ * 所有项目公共的配置*/
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'org.jetbrains.kotlin.jvm'
+
+	group = 'io.github'
+	version = '1.0-SNAPSHOT'
+	sourceCompatibility = this.jdk_version
+	targetCompatibility = this.jdk_version
+
+	configurations {
+		compile
+		developmentOnly
+		runtimeClasspath {
+			extendsFrom developmentOnly
+		}
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	repositories {
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+		maven { url 'https://maven.aliyun.com/repository/google' }
+		maven { url 'https://maven.aliyun.com/repository/jcenter' }
+		mavenCentral()
+		jcenter()
+	}
+	compileKotlin {
+		kotlinOptions.jvmTarget = "1.8"
+	}
+	compileTestKotlin {
+		kotlinOptions.jvmTarget = "1.8"
+	}
+}
+
+
+subprojects {
+	[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+	test.enabled = false
+	dependencies {
+		compileOnly "org.projectlombok:lombok:${lombok_version}"
+		annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+		annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
+	}
+
+	compileJava {
+		options.compilerArgs = ['-Amapstruct.suppressGeneratorTimestamp=true',
+								'-Amapstruct.suppressGeneratorVersionInfoComment=true',
+								'-parameters']
+	}
+}
+
+
