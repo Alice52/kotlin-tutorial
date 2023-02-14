@@ -12,7 +12,7 @@ plugins {
 }
 
 wrapper {
-    gradleVersion = '7.4.2' // version required
+    gradleVersion = '7.6' // version required
 }
 
 /**
