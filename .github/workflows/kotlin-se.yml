@@ -3,7 +3,7 @@ name: Build Kotlin-Se
 on:
   push:
     paths:
-      - 'tutorials/kotlin-se'
+      - 'tutorials/kotlin-se/**'
       - '.github/workflows/kotlin-se.yml'
   pull_request:
 

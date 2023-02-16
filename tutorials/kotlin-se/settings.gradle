@@ -10,5 +10,4 @@
 rootProject.name = 'kotlin-se'
 include 'quickstart'
 include 'se-syntax'
-include 'test'
 
