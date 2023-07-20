@@ -10,7 +10,7 @@ fun main() {
 
     JvmStaticClass.aStaticFuncation()
 
-    MyObject.run()
+//    MyObject.run()
 
     ObjectExtension.extension()
 }
