@@ -14,6 +14,7 @@ public class JavaController {
 
     @GetMapping("/java")
     public String index(@RequestParam("name") String name) {
+
         log.info("name: {}", name);
         return StrUtil.format("Hello, {}!", name);
     }

@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.query
 import org.springframework.stereotype.Service
 import top.hubby.model.Message
 import top.hubby.repository.MessageRepository
+import java.io.FileInputStream
 import java.util.*
 
 @Service
@@ -12,7 +13,14 @@ class MessageService(val db: JdbcTemplate, val repository: MessageRepository) : 
 
     override var test: String = "abs"
 
+    fun foo() {
+        FileInputStream("foo.txt").use {
+            it.available()
+            // Use 'it' to reference the stream
+        }
+    }
     override fun save(message: Message) {
+
         val id = message.id ?: UUID.randomUUID().toString();
         db.update("insert into messages values ( ?, ? )", id, message.text)
     }

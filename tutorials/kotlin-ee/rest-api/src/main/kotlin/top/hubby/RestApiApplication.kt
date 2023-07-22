@@ -18,5 +18,5 @@ inline fun <reified R : Any> R.logger(): Logger =
     LoggerFactory.getLogger(this::class.java.name.substringBefore("\$Companion"))
 
 // Optional.of("asa").opToList()
-inline fun <T : Any> Optional<out T>.opToList(): List<T> =
-    if (isPresent) listOf(get()) else emptyList()
+inline fun <T : Any> Optional<out T>.opToList(): List<T> = if (isPresent) listOf(get()) else emptyList()
+
