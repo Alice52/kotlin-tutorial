@@ -1,10 +1,10 @@
-name: Build Kotlin-Se
+name: Build Kotlin-Ee
 
 on:
   push:
     paths:
-      - 'tutorials/kotlin-se/**'
-      - '.github/workflows/kotlin-se.yml'
+      - 'tutorials/kotlin-ee/**'
+      - '.github/workflows/kotlin-ee.yml'
   pull_request:
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env: # define constant
       PROJECT_PREFIX: tutorials
-      PROJECT_NAME: kotlin-se
+      PROJECT_NAME: kotlin-ee
 
     steps:
       - name: Export Global Var
@@ -47,19 +47,3 @@ jobs:
           cd $PROJECT_HOME/$PROJECT_PREFIX/$PROJECT_NAME
           ./gradlew clean build -x test --console=plain
 
-      # - name: Upload Gradle ec-product Artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: ec-product-1.0-SNAPSHOT.jar
-      #     path: backend/project-ec/ec-product/build/libs
-
-      # - name: Cache Maven packages
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: ~/.m2
-      #     key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-      #     restore-keys: ${{ runner.os }}-m2
-      # - name: Build With Maven
-      #   run: |
-      #     cd backend/project-generator
-      #     mvn clean package -DskipTests=true

@@ -1,6 +1,5 @@
 package se.syntax.func
 
-import java.util.*
 import java.util.Arrays.asList
 
 
@@ -35,6 +34,10 @@ fun <T> asList(vararg ts: T): List<T> {
     for (t in ts) // ts is an Array
         result.add(t)
     return result
+}
+
+infix fun Int.tos(x: Int): Int {
+    return x
 }
 
 infix fun Int.shls(x: Int): Int {
