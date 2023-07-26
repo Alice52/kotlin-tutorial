@@ -1,6 +1,6 @@
 package top.hubby.controller;
 
-import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.text.CharSequenceUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,6 +16,6 @@ public class JavaController {
     public String index(@RequestParam("name") String name) {
 
         log.info("name: {}", name);
-        return StrUtil.format("Hello, {}!", name);
+        return CharSequenceUtil.format("Hello, {}!", name);
     }
 }

@@ -9,3 +9,14 @@ spring:
     init:
       schema-locations: classpath:schema.sql
       mode: always
+
+myconfig:
+  my-host: ssl://example.com
+  my-port: 23894
+  my-user: user
+  my-pass: pass
+
+api:
+  clientId: "client123"
+  url: "https://api.url.com"
+  key: "api-access-key"
