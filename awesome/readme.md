@@ -22,6 +22,15 @@
 7. 泛型
 8. 工程化和相关生态
 
+## core point
+
+1. 泛型: 实现原理
+2. oop: 封装|继承|多态|抽象
+3. 函数: 没有多返回值唯一不好的
+4. 线程: 协程
+5. **可以返回语句表达式**
+
 ## reference
 
 1. https://play.kotlinlang.org/byExample
+2. [kt compiler to class](https://www.jianshu.com/p/e6512f39f7c7)
