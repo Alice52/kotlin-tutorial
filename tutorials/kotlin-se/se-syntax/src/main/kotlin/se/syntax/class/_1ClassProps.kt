@@ -1,11 +1,21 @@
 package se.syntax.`class`
 
-class _1ClassProps(var age: Int) {
+class _1ClassProps(val age: Int) {
 
+    // 1. lazy load or init
+    lateinit var lazyProp: String
+    val dbConn: String by lazy { "zack" }
+
+    // 2. member prop
     var name: String = "" // 默认就会有 setter/getter
         get() = field + "za"  // overwrite
-    // set  overwrite
+        private set  // overwrite
 
+    // 3. 没有getter/setter
+    private val school: String = ""
+
+
+    // for log
     override fun toString(): String {
         return "name: $name, age: $age" // $name will call method of getName()
     }
@@ -15,7 +25,7 @@ class _1ClassProps(var age: Int) {
 fun main() {
     val obj = _1ClassProps(18)
 
-    obj.name = "zack"
+    // obj.name = "zack" // will compile error
     val age = obj.age
 
     println(obj) // name: zackza, age: 18
@@ -30,7 +40,7 @@ public final class _1ClassProps {
       return this.name + "za";
    }
 
-   public final void setName(@NotNull String var1) {
+   private final void setName(@NotNull String var1) {
       Intrinsics.checkNotNullParameter(var1, "<set-?>");
       this.name = var1;
    }
@@ -46,6 +56,11 @@ public final class _1ClassProps {
    public _1ClassProps(int age) {
       this.age = age;
       this.name = "";
+   }
+
+   @NotNull
+   public String toString() {
+      return "name: " + this.getName() + ", age: " + this.age;
    }
 }
  */
