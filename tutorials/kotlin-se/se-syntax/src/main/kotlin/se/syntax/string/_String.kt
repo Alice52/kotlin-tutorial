@@ -24,4 +24,10 @@ fun main() {
     for (c in str) {
         println(c)
     }
+
+    // 6. replace + lambda: 将a和k替换成aa和ka
+    val replace = "zack".replace(Regex("[ak]")) {
+        it.value + 'a'
+    }
+    println("replace: $replace") // zaacka
 }

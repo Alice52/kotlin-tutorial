@@ -15,6 +15,7 @@ class _FuncDefine {
     // 3.定义初始化函数变量
     var funcVoid: () -> Unit = { println("hello") }
     var funcReturn: (x: String) -> String = { it }
+    var funcReturn2 = { x: String -> x } // 推断函数声明为 (x: String) -> String
     var funcArgs: (x: String, y: String) -> String = { x, y -> x + y }
 
     // 4.特殊字符: 规避关键字等
