@@ -1,4 +1,4 @@
-package se.syntax.`object`
+package se.syntax.`class`
 
 sealed class Result
 

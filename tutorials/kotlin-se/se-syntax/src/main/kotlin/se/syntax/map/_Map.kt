@@ -1,7 +1,6 @@
 package se.syntax.map
 
-class _Map {
-}
+class _Map {}
 
 /**
  * @see _Array.class
@@ -32,4 +31,14 @@ fun main() {
     mutableMapOf1["zack"] = 17
     mutableMapOf1.put("alice", 89)
     mutableMapOf1.getOrPut("fff") { -1 }
+
+    // 4.travel
+    for ((key, value) in mutableMapOf1) {
+        println("$key -> $value")
+    }
+
+    for (entry in mutableMapOf1.entries) {
+        val key: String = entry.component1()
+        val value: Int = entry.component2()
+    }
 }

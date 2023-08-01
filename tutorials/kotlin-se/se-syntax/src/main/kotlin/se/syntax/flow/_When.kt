@@ -7,7 +7,7 @@ fun main() {
 
     val info = when (week) {
         1 -> "Monday"
-        2 -> "Tuesday"
+        is Int -> "Tuesday"
         else -> {
             println("unknown day")
         }
