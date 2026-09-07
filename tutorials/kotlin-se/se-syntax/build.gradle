@@ -1,4 +1,4 @@
 dependencies {
-    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.9.0'
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.9.25'
 }
 
